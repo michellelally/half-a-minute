@@ -1,10 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div id="wrapper">
-  <h1>Half A Minute</h1>
-  <nav>
-    <button [routerLink]="['/game']">Rules </button>
-    <button [routerLink]="['/game']">Start Game </button>
-    <button [routerLink]="['/game']">Personalise </button>
-  </nav>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="title-center">
+        Half A Minute
+      </span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <button mat-button [routerLink]="['/game']" color="Warn">Rules </button>
+      <button mat-button [routerLink]="['/game']">Start Game</button>
+      <button mat-button [routerLink]="['/personalize']">Personalise </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
 </div>
+
 <router-outlet></router-outlet>

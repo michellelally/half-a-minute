@@ -2,12 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {WordsService} from './services/words.service';
 
+import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { GamePageComponent } from './game-page/game-page.component';
-
 import {HttpClientModule} from '@angular/common/http';
+import { GamePageComponent } from './game-page/game-page.component';
+import { GamePersonalizeComponent } from './game-personalize/game-personalize.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule,
+  MatMenuModule,
+  MatCardModule,
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatExpansionModule
+} from '@angular/material';
+import { AddWordsComponent } from './add-words/add-words.component';
 
 const appRoutes: Routes = [
   {
@@ -15,21 +27,37 @@ const appRoutes: Routes = [
     component: GamePageComponent
   },
   {
-    path: 'game',
-    component: GamePageComponent
+    path: 'personalize',
+    component: GamePersonalizeComponent
+  },
+  {
+    path: 'add',
+    component: AddWordsComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    GamePageComponent
+    GamePageComponent,
+    GamePersonalizeComponent,
+    AddWordsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatMenuModule,
+    FormsModule      
   ],
   providers: [WordsService],
   bootstrap: [AppComponent]

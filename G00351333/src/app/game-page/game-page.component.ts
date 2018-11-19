@@ -20,7 +20,7 @@ export class GamePageComponent implements OnInit {
   ngOnInit() {
     console.log("work");
     this.ws.getWordsData().subscribe(data => {
-      this.words = this.shuffle(data.words);
+      this.words = data.words;
       
     });
 
