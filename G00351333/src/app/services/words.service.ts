@@ -21,7 +21,6 @@ export class WordsService {
   }
 
   addWord(word: string): Observable<any> {
-    console.log("WordService addWord " + word);
     const words: Word = { word: word };
     return this.http.post("http://localhost:8081/api/words", words);
   }

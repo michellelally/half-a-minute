@@ -14,7 +14,6 @@ export class EditWordsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private ws: WordsService) { }
 
   ngOnInit() {
-    console.log("ngOnInit edit-words component");
     console.log(this.route.snapshot.params['id'])
     this.ws.getWord(this.route.snapshot.params['id']).subscribe(data => {
       this.word = data;

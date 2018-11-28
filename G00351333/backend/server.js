@@ -36,8 +36,7 @@ app.use(function (req, res, next) {
 });
 
 app.post('/api/words', function (req, res) {
-    console.log("app.post: word successful");
-    console.log(req.body.word);
+    console.log("Word added: " + req.body.word);
     WordModel.create({
         words: req.body.word //words: has to match schema name
     }, function (err, data) {
@@ -56,7 +55,6 @@ app.get('/api/words', function (req, res) {
 })
 
 app.delete('/api/words/:id', function (req, res) {
-    console.log("server app.delete() " + req.params.id);
     WordModel.deleteOne({ _id: req.params.id },
         function (err, data) {
             if (err)
@@ -75,13 +73,11 @@ app.get('/api/words/:id', function (req, res) {
 })
 
 app.put('/api/words/:id', function (req, res) {
-    console.log("server app.put() ");
     console.log("Word ID: ", req.params.id);
     console.log("Word Body: ", req.body);
 
     WordModel.findByIdAndUpdate(req.params.id, req.body,
         function (err, word) {
-            console.log("findByIdAndUpdate (" + this.req.params.id + ", " + this.req.body +")")
             res.json(word);
         });
 })

@@ -16,7 +16,6 @@ export class AddWordsComponent implements OnInit {
   }
 
   onAddWord(form: NgForm) {
-    console.log("onAddWord");
     this.ws.addWord(form.value.word).subscribe();
     console.log(form.value);
     form.resetForm();
