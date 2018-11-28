@@ -1,17 +1,15 @@
 <div id="wrapper">
+    <h1>Half a Minute!</h1>
+    <h4>The quick thinking, word guessing party game</h4>
+    
   <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span class="title-center">
-        Half A Minute
-      </span>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-      <button mat-button [routerLink]="['/game']" color="Warn">Rules </button>
+    <mat-toolbar-row class="main-bar">
+      <button mat-button [routerLink]="['/rules']">How to Play </button>
       <button mat-button [routerLink]="['/game']">Start Game</button>
       <button mat-button [routerLink]="['/personalize']">Personalise </button>
     </mat-toolbar-row>
   </mat-toolbar>
-
+  <br>
 </div>
 
 <router-outlet></router-outlet>

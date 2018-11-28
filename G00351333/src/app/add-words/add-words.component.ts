@@ -12,6 +12,7 @@ export class AddWordsComponent implements OnInit {
   constructor(private ws: WordsService) { }
 
   ngOnInit() {
+    clearTimeout();
   }
 
   onAddWord(form: NgForm) {

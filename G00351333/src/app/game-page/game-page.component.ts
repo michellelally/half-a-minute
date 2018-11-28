@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WordsService } from '../services/words.service';
 
-
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
   styleUrls: ['./game-page.component.scss']
 })
-
-
 
 export class GamePageComponent implements OnInit {
 
@@ -16,17 +13,22 @@ export class GamePageComponent implements OnInit {
 
   words: any = [];
   seconds: number = 30
+  timer: any; 
 
   ngOnInit() {
     console.log("work");
     this.ws.getWordsData().subscribe(data => {
-      this.words = data.words;
-      
+      this.words = this.shuffle(data);
     });
 
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       alert("Time's up!");
     }, 5000);
+
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.timer);
   }
 
   // Fisher-Yates shuffle algorithm used to ensure the 5 words are generated in a random order

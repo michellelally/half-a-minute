@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordsService } from '../services/words.service';
+import { Word } from '../word.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game-personalize',
@@ -19,7 +21,9 @@ export class GamePersonalizeComponent implements OnInit {
 
   onDelete(id: String) {
     console.log(id);
-    this.ws.deleteWord(id).subscribe();
+    this.ws.deleteWord(id).subscribe(() => {
+      this.ngOnInit();
+    })
   }
 
 }

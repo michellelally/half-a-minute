@@ -17,48 +17,47 @@ var Schema = mongoose.Schema;
 
 //How its writing the data
 var wordsSchema = new Schema({
-    words : String
+    words: String
 })
 
 //Data Model
 var WordModel = mongoose.model('words', wordsSchema);
 
 //Here we are configuring express to use body-parser as middle-ware. 
-app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
-    });
-    
-app.post('/api/words', function(req, res){
+});
+
+app.post('/api/words', function (req, res) {
     console.log("app.post: word successful");
     console.log(req.body.word);
     WordModel.create({
-        words: req.body.word
-    }, function (err, data){
-        if (err)
-            res.send(err);
-        res.json(data);  
-    })
-});
-
-app.get('/api/words', function(req, res){
-    WordModel.find(function(err, data){
+        words: req.body.word //words: has to match schema name
+    }, function (err, data) {
         if (err)
             res.send(err);
         res.json(data);
     })
-      
+});
+
+app.get('/api/words', function (req, res) {
+    WordModel.find(function (err, data) {
+        if (err)
+            res.send(err);
+        res.json(data);
+    })
 })
 
-app.delete('/api/words/:id', function(req, res){
-    console.log(req.params.id);
-    WordModel.deleteOne({_id: req.params.id}, 
+app.delete('/api/words/:id', function (req, res) {
+    console.log("server app.delete() " + req.params.id);
+    WordModel.deleteOne({ _id: req.params.id },
         function (err, data) {
             if (err)
                 res.send(err);
@@ -66,10 +65,36 @@ app.delete('/api/words/:id', function(req, res){
         });
 })
 
+//Update
+app.get('/api/words/:id', function (req, res) {
+    console.log("Read word: ", req.params.id);
+    WordModel.find({ _id: req.params.id },
+        function (err, data) {
+            res.json(data);
+        });
+})
+
+app.put('/api/words/:id', function (req, res) {
+    console.log("server app.put() ");
+    console.log("Word ID: ", req.params.id);
+    console.log("Word Body: ", req.body);
+
+    WordModel.findByIdAndUpdate(req.params.id, req.body,
+        function (err, word) {
+            console.log("findByIdAndUpdate (" + this.req.params.id + ", " + this.req.body +")")
+            res.json(word);
+        });
+})
+
 
 var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("Example app listening at http://%s:%s", host, port)
+    var host = server.address().address
+    var port = server.address().port
+
+    console.log("Example app listening at http://%s:%s", host, port)
 })
+
+// app.use("/", express.static(path.join(__dirname, "angular")));
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname, "angular", "index.html"));
+// })

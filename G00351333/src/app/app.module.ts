@@ -20,8 +20,14 @@ import {
   MatExpansionModule
 } from '@angular/material';
 import { AddWordsComponent } from './add-words/add-words.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { EditWordsComponent } from './edit-words/edit-words.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'rules',
+    component: HomePageComponent
+  },
   {
     path: 'game',
     component: GamePageComponent
@@ -33,6 +39,10 @@ const appRoutes: Routes = [
   {
     path: 'add',
     component: AddWordsComponent
+  }, 
+  {
+    path: 'edit/:id',
+    component: EditWordsComponent
   }
 ];
 
@@ -41,7 +51,9 @@ const appRoutes: Routes = [
     AppComponent,
     GamePageComponent,
     GamePersonalizeComponent,
-    AddWordsComponent
+    AddWordsComponent,
+    HomePageComponent,
+    EditWordsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

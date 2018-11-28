@@ -1,22 +1,13 @@
-<!-- <p>
-  <button>Add words</button>
-  <br>
-  <button>Delete a word</button>
-  <br>
-  <button>Edit a word</button>
-</p> -->
 <div>
   <mat-toolbar color="primary">Words List</mat-toolbar>
-  <mat-action-row>
-      <button mat-button color="primary" [routerLink]="['/add']">ADD WORDS</button>
-    </mat-action-row>
+    <button mat-button color="primary" class="addWords" [routerLink]="['/add']">ADD WORDS</button>
   <mat-accordion multi="true" *ngIf="words.length > 0">
     <mat-expansion-panel [expanded]="true" *ngFor="let word of words">
-      <p>{{ word.word }}</p>
-      <mat-action-row>
-        <button mat-button color="primary">EDIT</button>
-        <button mat-button color="warn" (click)="onDelete(post._id)">DELETE</button>
-      </mat-action-row>
+      <p>
+        {{ word.words }}
+      </p>
+      <button mat-button color="primary" [routerLink]="['/edit', word._id]">EDIT</button>
+      <button mat-button color="warn" (click)="onDelete(word._id)">DELETE</button>
     </mat-expansion-panel>
   </mat-accordion>
   <p class="info-text mat-body-1" *ngIf="words.length <= 0">No words added yet!</p>

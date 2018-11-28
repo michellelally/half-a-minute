@@ -1,3 +1,4 @@
+<div id="wrapper">
 <mat-card>
   <form (submit)="onAddWord(wordForm)" #wordForm="ngForm">
     <mat-form-field>
@@ -8,7 +9,6 @@
         ngModel
         minlength="2"
         #title="ngModel">
-      <!-- <mat-error *ngIf="words.invalid">Please enter a word.</mat-error> -->
     </mat-form-field>
     <br><br>
     <button
@@ -17,3 +17,4 @@
       type="submit">Save Word</button>
   </form>
 </mat-card>
+</div>

@@ -1,13 +1,18 @@
-div {
+div, h1, h4 {
+    justify-content: center;
+    align-content: center;
     text-align: center;
 }
 
-.button {
+.button{
     position: absolute;
     top: 50%;
 }
 
-mat-toolbar-row {
-    text-align: center;
+.main-bar {
+    justify-content: center;
+}
 
+button{
+    margin: 1px;
 }

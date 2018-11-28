@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Word } from '../word.model';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -31,4 +29,14 @@ export class WordsService {
   deleteWord(id: String): Observable<any> {
     return this.http.delete("http://localhost:8081/api/words/" + id)
   }
+
+  getWord(id: String): Observable<any> {
+    return this.http.get("http://localhost:8081/api/words/" + id)
+  }
+
+  updateWord(id: String, word: string): Observable<any> {
+    const words: Word = { word: word };
+    return this.http.put("http://localhost:8081/api/words/" + id, words);
+  }
+
 }
