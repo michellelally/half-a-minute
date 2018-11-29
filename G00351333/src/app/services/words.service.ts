@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Word } from '../word.model';
+import { Words } from '../word.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +14,9 @@ export class WordsService {
     return this.http.get("http://localhost:8081/api/words");
   }
 
-  private words: Word[] = [];
-
-  getWords() {
-    return [...this.words];
-  }
-
   addWord(word: string): Observable<any> {
-    const words: Word = { word: word };
+    console.log("service addWord: "+ word);
+    const words: Words = { words: word };
     return this.http.post("http://localhost:8081/api/words", words);
   }
 
@@ -33,8 +28,8 @@ export class WordsService {
     return this.http.get("http://localhost:8081/api/words/" + id)
   }
 
-  updateWord(id: String, word: string): Observable<any> {
-    const words: Word = { word: word };
+  updateWord(id: string, word: string): Observable<any> {
+    const words: Words = { words: word };
     return this.http.put("http://localhost:8081/api/words/" + id, words);
   }
 

@@ -22,6 +22,7 @@ import {
 import { AddWordsComponent } from './add-words/add-words.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { EditWordsComponent } from './edit-words/edit-words.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -44,6 +45,11 @@ const appRoutes: Routes = [
     path: 'edit/:id',
     component: EditWordsComponent
   }
+  // }, 
+  // {
+  //   path: '**',
+  //   component: PageNotFoundComponent
+  // }
 ];
 
 @NgModule({
@@ -53,7 +59,8 @@ const appRoutes: Routes = [
     GamePersonalizeComponent,
     AddWordsComponent,
     HomePageComponent,
-    EditWordsComponent
+    EditWordsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -36,9 +36,9 @@ app.use(function (req, res, next) {
 });
 
 app.post('/api/words', function (req, res) {
-    console.log("Word added: " + req.body.word);
+    console.log("Word added: " + req.body.words);
     WordModel.create({
-        words: req.body.word //words: has to match schema name
+        words: req.body.words //words: has to match schema name
     }, function (err, data) {
         if (err)
             res.send(err);
@@ -77,8 +77,12 @@ app.put('/api/words/:id', function (req, res) {
     console.log("Word Body: ", req.body);
 
     WordModel.findByIdAndUpdate(req.params.id, req.body,
-        function (err, word) {
-            res.json(word);
+        function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(data);
+            res.json(data);
         });
 })
 

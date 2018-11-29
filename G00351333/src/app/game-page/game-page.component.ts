@@ -50,6 +50,10 @@ export class GamePageComponent implements OnInit {
     return array;
   }
 
+  refresh(){
+    window.location.reload();
+  }
+
 }//end of class
     
 

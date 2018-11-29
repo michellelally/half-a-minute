@@ -1,7 +1,18 @@
 div {
     text-align: center;
-    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 15px;
 }
 button{
     margin: 1px;
 }
+mat-card{
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-style: solid ;
+    border-color: rgb(201, 200, 200);
+    box-shadow: 4px 4px 0px rgb(158, 158, 158);
+}
+
+
