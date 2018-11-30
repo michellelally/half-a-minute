@@ -14,6 +14,7 @@ export class GamePageComponent implements OnInit {
   words: any = [];
   seconds: number = 30
   timer: any; 
+  countdown: any; 
 
   ngOnInit() {
     console.log("work");
@@ -21,13 +22,23 @@ export class GamePageComponent implements OnInit {
       this.words = this.shuffle(data);
     });
 
+    //Using the setInterval method to display a countdown of how much time they have left 
+    this.countdown = setInterval(() => {
+      this.seconds--;
+      if(this.seconds <= 0 )
+        clearTimeout(this.countdown);
+    }, 1000);
+
+    //Alerts the user when the 30 seconds are up
     this.timer = setTimeout(() => {
       alert("Time's up!");
-    }, 5000);
+    }, 30000);
 
   }
 
+  
   ngOnDestroy() {
+    //Clear the timer when the user has navigated to another page
     clearTimeout(this.timer);
   }
 

@@ -1,13 +1,20 @@
 <div>
-  <mat-toolbar color="primary">Words List</mat-toolbar>
-  <button mat-button color="primary" class="addWords" [routerLink]="['/add']">ADD NEW WORDS</button>
-  <mat-accordion multi="true" *ngIf="words.length > 0">
-    <mat-card *ngFor="let word of words">
-      {{ word.words }}
-      <br><br>
-      <button mat-button color="primary" [routerLink]="['/edit', word._id]">Edit</button>
-      <button mat-button color="warn" (click)="onDelete(word._id)">Delete</button>
-    </mat-card>
-  </mat-accordion>
-  <p class="info-text mat-body-1" *ngIf="words.length <= 0">No words added yet!</p>
+  This is a list of all the words that are being used in the game.<br>
+  Here you can: <br>
+  <ul>
+    <li>Add more words</li>
+    <li>Edit any word that already exits</li>
+    <li>Delete a word from the game</li>
+  </ul>
+    <br><br>
+    <button mat-button color="primary" class="addWords" [routerLink]="['/add']">ADD NEW WORDS</button>
+    <mat-accordion multi="true" *ngIf="words.length > 0">
+      <mat-card *ngFor="let word of words">
+        {{ word.words }}
+        <br><br>
+        <button mat-button color="primary" [routerLink]="['/edit', word._id]">Edit</button>
+        <button mat-button color="warn" (click)="onDelete(word._id)">Delete</button>
+      </mat-card>
+    </mat-accordion>
+    <p class="info-text mat-body-1" *ngIf="words.length <= 0">No words added yet!</p>
 </div>
