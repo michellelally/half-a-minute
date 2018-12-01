@@ -17,7 +17,7 @@ export class GamePageComponent implements OnInit {
   countdown: any; 
 
   ngOnInit() {
-    console.log("work");
+    //Getting the data from the Word Service and assigning it to local array of objects
     this.ws.getWordsData().subscribe(data => {
       this.words = this.shuffle(data);
     });

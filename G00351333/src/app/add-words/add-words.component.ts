@@ -15,6 +15,7 @@ export class AddWordsComponent implements OnInit {
     clearTimeout();
   }
 
+  //Method called by button press and calls the addWord() method from the service
   onAddWord(form: NgForm) {
     this.ws.addWord(form.value.word).subscribe();
     console.log(form.value);

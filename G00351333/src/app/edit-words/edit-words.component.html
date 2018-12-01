@@ -1,10 +1,12 @@
 <body>
   <div id="wrapper">
+    <br>
+    <h2> Edit word</h2>
     <mat-card>
       <form (submit)="onEditWord(wordForm)" #wordForm="ngForm">
         <mat-form-field>
-          <input matInput type="text" name="word" ngModel="{{ word[0]?.word }}" minlength="2" #title="ngModel">
-          <!-- <mat-error *ngIf="word.invalid">Please enter a word.</mat-error> -->
+          <input matInput type="text" name="word" ngModel="{{ word[0]?.word }}" minlength="2" #word="ngModel">
+          <mat-error *ngIf="word.invalid">Please enter a word.</mat-error>
         </mat-form-field>
         <br><br>
         <button mat-raised-button color="accent" type="submit">Save Word</button>

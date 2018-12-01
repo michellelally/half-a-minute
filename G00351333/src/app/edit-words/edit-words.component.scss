@@ -1,5 +1,5 @@
 input {
-    width: 100%;
+    width: 500px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -12,6 +12,8 @@ input {
 
 div { 
     text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 15px;   
 }
 
 body { 
