@@ -44,12 +44,11 @@ const appRoutes: Routes = [
   {
     path: 'edit/:id',
     component: EditWordsComponent
+  }, 
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
-  // }, 
-  // {
-  //   path: '**',
-  //   component: PageNotFoundComponent
-  // }
 ];
 
 @NgModule({

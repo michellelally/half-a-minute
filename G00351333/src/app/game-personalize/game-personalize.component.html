@@ -1,13 +1,20 @@
-<div>
-  This is a list of all the words that are being used in the game.<br>
-  Here you can: <br>
-  <ul>
-    <li>Add more words</li>
-    <li>Edit any word that already exits</li>
-    <li>Delete a word from the game</li>
-  </ul>
-    <br><br>
-    <button mat-button color="primary" class="addWords" [routerLink]="['/add']">ADD NEW WORDS</button>
+<body>
+  <div id="wrapper">
+    <br>
+    <div id="text">
+      <br>
+      This is a list of all the words that are being used in the game.<br>
+      Here you can:
+      <br>
+      <ul>
+        <li>Add more words to the game</li>
+        <li>Edit any word that already exits</li>
+        <li>Delete a word from the game</li>
+      </ul>
+      <button mat-button color="primary" class="addWords" [routerLink]="['/add']">Add New Words</button>
+      <br><br>
+    </div>
+
     <mat-accordion multi="true" *ngIf="words.length > 0">
       <mat-card *ngFor="let word of words">
         {{ word.words }}
@@ -17,4 +24,5 @@
       </mat-card>
     </mat-accordion>
     <p class="info-text mat-body-1" *ngIf="words.length <= 0">No words added yet!</p>
-</div>
+  </div>
+</body>

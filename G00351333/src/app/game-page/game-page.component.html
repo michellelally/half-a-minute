@@ -7,7 +7,7 @@
       <ul *ngFor="let word of words | slice:0:5; let i=index">
         <li>{{word.words}}</li>
       </ul>
-      <button mat-button color="primary" (click)="refresh()">Play Again!</button>
+      <button mat-button color="primary" class="button" (click)="refresh()">Play Again!</button>
     </mat-card>
     <br>
   </div>

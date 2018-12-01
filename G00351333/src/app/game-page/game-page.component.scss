@@ -2,29 +2,24 @@
     text-align: center;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 15px;
-    // background-image: url(../../assets/kisspng-question-mark-fractal-computer-icons-clip-art-confetti-5ace5a39c915b0.9857211715234729538237.png);
-    // background-size: contain;
 }
 mat-card {
     margin: 0 auto 0 auto;
     text-align: center; 
-    width: 300px;
-    background-color: white;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
     border-style: solid;
     border-color: grey;
     border-radius: 10px;
-    
-
 }
 p{
    line-height: 20px; 
 }
 body {
-    
-    height: 700px;
+    height: 890px;
     width: 100%;
     background-image: url(../../assets/30042233-question-mark-sign-icon-help-symbol-faq-sign-seamless-grid-lines-texture-cells-repeating-pattern-whi.jpg);
-    background-size: contain;
+    background-repeat: repeat;
 }
 #timer{
     font-size: 50px;
@@ -34,6 +29,13 @@ body {
     width: 100px;
     height: 60px;
     border-style: solid;
-    border-color: red;
+    border-color: rgba(0, 174, 255, 0.555);
     border-radius: 10px;
+    background-color: rgba(0, 174, 255, 0.555);
+}
+button{
+    margin: 1px;
+    background-color:  rgba(0, 174, 255, 0.4);
+    border-style: solid;
+    border-color: rgb(0, 174, 255);
 }

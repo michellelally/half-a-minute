@@ -4,9 +4,26 @@ input {
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid green;
-    border-radius: 4px;      
+    border-radius: 4px;    
+    background-color: white;  
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 15px;
 }
 
 div { 
     text-align: center;
+}
+
+body {
+    height: 890px;
+    width: 100%;
+    background-image: url(../../assets/30042233-question-mark-sign-icon-help-symbol-faq-sign-seamless-grid-lines-texture-cells-repeating-pattern-whi.jpg);
+    background-repeat: repeat;
+}
+
+button{
+    margin: 1px;
+    background-color:  rgba(0, 174, 255, 0.4);
+    border-style: solid;
+    border-color: rgb(0, 174, 255);
 }
